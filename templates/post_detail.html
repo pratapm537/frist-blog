@@ -12,6 +12,8 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.body }}</p>
     </div>
+    <h2><a href="{% url 'update' post.pk %}">Update Blog</a></h2> <br><br>
+    <h2><a href="{% url 'delete' post.pk %}">Delete Blog</a></h2>
 {% endblock content %}
 </body>
 </html>

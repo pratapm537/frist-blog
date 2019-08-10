@@ -9,12 +9,21 @@
 </head>
 <body>
 <!-- it will contains header and footer for all html files-->
-<header>
-    <h1><a href="{% url 'home' %}">Django Blog</a></h1>
-</header>
 <div>
-    {% block content %}
-    {% endblock content %}
+    <header>
+        <div class="nav-left">
+            <h1><a href="{% url 'home' %}">Django Blog</a></h1> <br>
+         </div>
+        <div class="nav-right">
+            <a href="{% url 'create' %}">+Add Blog</a>
+        </div>
+    </header>
+    {% if user.is_authenticated %}
+        <p>Hi!! {{ user.username }}</p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+        {% block content %}
+        {% endblock content %}
 </div>
 </body>
 </html>
